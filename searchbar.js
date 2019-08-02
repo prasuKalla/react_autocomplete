@@ -56,7 +56,7 @@ export class SearchBarComponent extends React.Component {
         return (
             
                 <ul>
-                    { suggestions.map((user) => <li onClick={() => { this.suggestionSelected(user.name) }}>{user.name}</li> )}
+                    { suggestions.map((userName) => <li onClick={() => { this.suggestionSelected(userName) }}>{userName}</li> )}
                 </ul>
            );
       }
