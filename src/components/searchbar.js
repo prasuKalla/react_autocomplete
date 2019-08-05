@@ -16,7 +16,7 @@ export class SearchBarComponent extends React.Component {
         const {users} = this.state;
         const names = [];
         users.map((user) => {
-            names.push(user);
+            names.push(user.name);
         })
 
         console.log(names);
@@ -27,9 +27,10 @@ export class SearchBarComponent extends React.Component {
           if(value.length>0){
               const regex = new RegExp(`^${value}`, 'i');
               console.log(regex);
-              suggestions = users.sort().filter(v => regex.test(v));
+              suggestions = names.sort().filter(v => regex.test(v));
                
               console.log(users.length);
+              console.log(suggestions);
               console.log(suggestions.length);
           }
 
@@ -55,7 +56,7 @@ export class SearchBarComponent extends React.Component {
         return (
             
                 <ul>
-                    { suggestions.map((user) => <li onClick={() => { this.suggestionSelected(user.name) }}>{user.name}</li> )}
+                    { suggestions.map((userName) => <li onClick={() => { this.suggestionSelected(userName) }}>{userName}</li> )}
                 </ul>
            );
       }
